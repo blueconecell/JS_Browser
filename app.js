@@ -1,1 +1,1 @@
-console.log(isNaN("jelly"))
+console.log(isNaN("jelly"));
