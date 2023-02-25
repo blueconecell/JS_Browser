@@ -13,7 +13,6 @@ const colors = ["#1abc9c", "#3498db", "#9b59b6", "#f39c12", "#e74c3c"];
 ✅ ALL function handlers should be INSIDE of "superEventHandler"
 */
 const title = document.querySelector("h2");
-
 const superEventHandler = {
   handleMouseEnter: function () {
     title.style.color = colors[0];
