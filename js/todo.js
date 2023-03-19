@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos(){
     localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -39,9 +39,9 @@ function handleToDoSubmit(event){
 }
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
-const savedToDos = addEventListener(TODOS_KEY);
+const savedToDos = localStorage.getItem(TODOS_KEY);
 
  if(saveToDos){
     const parsedToDos = JSON.parse(savedToDos);
-    parsedToDos.forEach(); //익명함수 넣거나 자체 만든 함수를 그냥 넣거나 
+    parsedToDos.forEach(paintToDo); //익명함수 넣거나 자체 만든 함수를 그냥 넣거나 
  }
