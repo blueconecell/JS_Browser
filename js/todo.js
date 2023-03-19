@@ -2,10 +2,12 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
 const toDos = [];
 
 function saveToDos(){
-    localStorage.setItem("todos", JSON.stringify(toDos));
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function deleteToDo(event){
@@ -36,3 +38,10 @@ function handleToDoSubmit(event){
 
 }
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+const savedToDos = addEventListener(TODOS_KEY);
+
+ if(saveToDos){
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach(); //익명함수 넣거나 자체 만든 함수를 그냥 넣거나 
+ }
