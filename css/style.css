@@ -8,7 +8,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  color: pink;
+  color: black;
+  
 }
 
 #clock {
@@ -17,4 +18,11 @@ body {
   padding: 15px 0px;
   text-align: center;
   justify-content: space-between;
+}
+
+@media (max-width:800px){
+  body{
+    color: brown;
+  }
+
 }
