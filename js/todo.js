@@ -10,12 +10,11 @@ function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
-function deleteToDo(event){
-    const li = event.target.parentElement;
-    li.remove();
-    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
-    saveToDos();
-    
+function deleteToDo(event) {
+  const li = event.target.parentElement;
+  li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 function paintToDo(newTodo) {
@@ -31,27 +30,26 @@ function paintToDo(newTodo) {
   toDoList.appendChild(li);
 }
 
-function handleToDoSubmit(event){
-    event.preventDefault();
-    const newTodo = toDoInput.value;
-    toDoInput.value = "";
-    const newTodoObj = {
-        text: newTodo,
-        id: Date.now(),
-    };
-    console.log(newTodoObj.text, newTodo);
-    toDos.push(newTodoObj);
-    paintToDo(newTodoObj);
-    saveToDos();
-
+function handleToDoSubmit(event) {
+  event.preventDefault();
+  const newTodo = toDoInput.value;
+  toDoInput.value = "";
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  console.log(newTodoObj.text, newTodo);
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
+  saveToDos();
 }
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
- if(savedToDos !== null){
-    const parsedToDos = JSON.parse(savedToDos);
-    //익명함수 넣거나 자체 만든 함수를 그냥 넣거나 
-    toDos=parsedToDos;
-    parsedToDos.forEach(paintToDo);
- }
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  //익명함수 넣거나 자체 만든 함수를 그냥 넣거나
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
+}
